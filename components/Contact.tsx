@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Mail, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, MapPin, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 const contactInfo = [
   {
@@ -20,7 +21,7 @@ const contactInfo = [
   {
     icon: Github,
     label: 'GitHub',
-    value: 'github.com/Aniruddha-123-anii',
+    value: 'Github Aniruddha',
     href: 'https://github.com/Aniruddha-123-anii',
   },
 ];
@@ -32,12 +33,42 @@ export default function Contact() {
     email: '',
     message: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    alert('Thank you for your message! I will get back to you soon.');
+    setIsLoading(true);
+    setStatus('idle');
+
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing');
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -105,6 +136,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     placeholder="Your name"
                     required
+                    disabled={isLoading}
                   />
                 </div>
 
@@ -120,6 +152,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     placeholder="your@email.com"
                     required
+                    disabled={isLoading}
                   />
                 </div>
 
@@ -135,15 +168,41 @@ export default function Contact() {
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                     placeholder="Your message..."
                     required
+                    disabled={isLoading}
                   />
                 </div>
 
+                {/* Status Messages */}
+                {status === 'success' && (
+                  <div className="flex items-center gap-2 text-green-600 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                    <CheckCircle size={20} />
+                    <span className="text-sm font-medium">Message sent successfully! I&apos;ll get back to you soon.</span>
+                  </div>
+                )}
+
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 text-red-600 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                    <AlertCircle size={20} />
+                    <span className="text-sm font-medium">Failed to send message. Please try again or email me directly.</span>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-primary text-background font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+                  disabled={isLoading}
+                  className="w-full px-6 py-3 bg-primary text-background font-semibold rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Send Message
-                  <Send size={18} />
+                  {isLoading ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={18} />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
