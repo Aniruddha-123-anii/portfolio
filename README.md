@@ -4,20 +4,27 @@ A modern, professional developer portfolio built with Next.js 14, React, TypeScr
 
 ## 🌐 Live Demo
 
-**Website URL:** [https://portfolio-eight-tau-26.vercel.app/](https://portfolio-eight-tau-26.vercel.app/)
+**Website URL:** [https://its-aniruddha.vercel.app/](https://its-aniruddha.vercel.app/)
 
-[![Website](https://img.shields.io/badge/🌐%20Visit%20Live%20Website-success?style=for-the-badge)](https://portfolio-eight-tau-26.vercel.app/)
+[![Website](https://img.shields.io/badge/🌐%20Visit%20Live%20Website-success?style=for-the-badge)](https://its-aniruddha.vercel.app/)
 
 ## Features
 
-- 🌐 **Live Website**: [https://portfolio-eight-tau-26.vercel.app/](https://portfolio-eight-tau-26.vercel.app/)
-- **Dark/Light Theme Toggle**: Switch between dark and light modes with smooth transitions
-- **Email Contact Form**: Functional contact form using EmailJS to send emails directly
-- **Smooth Animations**: Scroll-triggered reveal animations and hover effects
-- **Fully Responsive**: Optimized for mobile, tablet, and desktop
-- **Single Page Layout**: Smooth scroll navigation between sections
-- **SEO Optimized**: Proper metadata and semantic HTML structure
-- **TypeScript**: Fully typed for better development experience
+- 🌐 **Live Website**: [https://its-aniruddha.vercel.app/](https://its-aniruddha.vercel.app/)
+- **🎨 3D Animations**: Advanced Framer Motion animations with mouse tracking
+- **📊 Animated Skills**: Progress bars that fill up on scroll
+- **💬 Testimonials Carousel**: Interactive recommendation slider
+- **🖱️ Custom Cursor**: Animated cursor that follows mouse with hover effects
+- **📈 Scroll Progress**: Visual progress bar at top of page
+- **✨ Particle System**: Interactive constellation particles with mouse repulsion
+- **⏳ Page Loader**: Professional loading screen with progress animation
+- **🌓 Dark/Light Theme**: Toggle between dark and light modes with smooth transitions
+- **📧 Email Contact Form**: Functional contact form using EmailJS
+- **🎯 Project Modals**: Click projects to see full details in modal
+- **⌨️ Typewriter Effect**: Animated text typing in hero section
+- **📱 Fully Responsive**: Optimized for mobile, tablet, and desktop
+- **⚡ Next.js 14**: App Router with server-side rendering
+- **🔒 TypeScript**: Fully typed for better development experience
 
 ## Tech Stack
 
@@ -38,16 +45,24 @@ portfolio/
 │   └── globals.css             # Global styles, Tailwind imports & theme variables
 ├── components/
 │   ├── Navbar.tsx              # Fixed navigation with theme toggle & smooth scroll
-│   ├── Hero.tsx                # Hero section with badge, designation & CTA buttons
-│   ├── About.tsx               # Professional summary with stats
+│   ├── Hero.tsx                # Hero section with 3D animations & typing effect
+│   ├── About.tsx               # Professional summary with animated counters
+│   ├── Skills.tsx              # Skills with animated progress bars
 │   ├── TechStack.tsx           # Technology cards grid
 │   ├── Experience.tsx          # Work experience timeline
-│   ├── Projects.tsx            # Project showcase cards
+│   ├── Projects.tsx            # Project showcase with modal details
 │   ├── Certifications.tsx      # Certification cards
 │   ├── Education.tsx           # Education timeline
+│   ├── Testimonials.tsx        # Testimonials carousel
 │   ├── Contact.tsx             # Contact form with EmailJS & social links
 │   ├── Footer.tsx              # Footer with scroll to top
-│   └── ThemeProvider.tsx       # Theme context provider for dark/light mode
+│   ├── ThemeProvider.tsx       # Theme context provider
+│   ├── CustomCursor.tsx        # Custom animated cursor
+│   ├── PageLoader.tsx          # Animated page loading screen
+│   ├── ScrollProgress.tsx      # Top scroll progress bar
+│   ├── ConstellationBackground.tsx  # Interactive particle system
+│   ├── AdvancedBackground.tsx  # 3D mouse-tracking background
+│   └── TypewriterText.tsx      # Reusable typing animation
 ├── data/
 │   ├── certifications.ts       # Certification data
 │   └── education.ts            # Education data
@@ -167,16 +182,22 @@ Add your resume PDF to the `public/` folder and ensure the filename matches the 
 
 ## Sections Overview
 
-1. **Navbar**: Fixed navigation with theme toggle, mobile menu, and smooth scroll
-2. **Hero**: Name, "Available for Opportunities" badge, designation, location, email, and CTAs
-3. **About**: Professional summary with key statistics
-4. **Tech Stack**: Technology cards organized by category
-5. **Experience**: Work history timeline
-6. **Projects**: Featured projects with descriptions and tech stack
-7. **Certifications**: Professional certifications showcase
-8. **Education**: Academic background timeline
-9. **Contact**: Functional contact form and social media links
-10. **Footer**: Quick links and scroll-to-top button
+1. **Page Loader**: Animated loading screen with progress bar and tech stack preview
+2. **Custom Cursor**: Interactive cursor with hover detection (desktop only)
+3. **Scroll Progress**: Visual progress indicator at top of viewport
+4. **Constellation Background**: Interactive particle system across entire page
+5. **Navbar**: Fixed navigation with theme toggle and smooth scroll
+6. **Hero**: 3D animated background, typing effect, gradient name animation
+7. **About**: Professional summary with animated stat counters
+8. **Skills**: Animated progress bars showing expertise levels
+9. **Tech Stack**: Technology cards organized by category
+10. **Experience**: Work history timeline with hover effects
+11. **Projects**: Featured projects with modal detail views
+12. **Certifications**: Professional certifications showcase
+13. **Education**: Academic background timeline
+14. **Testimonials**: Carousel of recommendations with star ratings
+15. **Contact**: Functional EmailJS contact form and social links
+16. **Footer**: Quick links, scroll-to-top, and copyright
 
 ## Available Scripts
 
