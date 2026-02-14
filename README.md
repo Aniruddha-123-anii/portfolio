@@ -2,8 +2,15 @@
 
 A modern, professional developer portfolio built with Next.js 14, React, TypeScript, and Tailwind CSS.
 
+## 🌐 Live Demo
+
+**Website URL:** [https://portfolio-eight-tau-26.vercel.app/](https://portfolio-eight-tau-26.vercel.app/)
+
+[![Website](https://img.shields.io/badge/🌐%20Visit%20Live%20Website-success?style=for-the-badge)](https://portfolio-eight-tau-26.vercel.app/)
+
 ## Features
 
+- 🌐 **Live Website**: [https://portfolio-eight-tau-26.vercel.app/](https://portfolio-eight-tau-26.vercel.app/)
 - **Dark/Light Theme Toggle**: Switch between dark and light modes with smooth transitions
 - **Email Contact Form**: Functional contact form using EmailJS to send emails directly
 - **Smooth Animations**: Scroll-triggered reveal animations and hover effects
