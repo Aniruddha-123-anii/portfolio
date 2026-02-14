@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowDown, MapPin, Mail } from 'lucide-react';
 import TypewriterText from './TypewriterText';
-import AnimatedBackground from './AnimatedBackground';
+import AdvancedBackground from './AdvancedBackground';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,7 +53,7 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <AnimatedBackground />
+      <AdvancedBackground />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -65,7 +65,7 @@ export default function Hero() {
           {/* Available for Opportunities Badge */}
           <motion.div className="mb-6" variants={badgeVariants}>
             <motion.span 
-              className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+              className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 shadow-[0_0_20px_rgba(16,185,129,0.3)] backdrop-blur-sm"
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(16,185,129,0.5)" }}
               transition={{ duration: 0.3 }}
             >
@@ -148,7 +148,7 @@ export default function Hero() {
             {['Full Stack Developer', 'Java 21', 'Spring Boot', 'Microservices', 'FinTech'].map((tag, index) => (
               <motion.span
                 key={tag}
-                className="px-3 py-1 text-sm font-medium bg-secondary/50 text-muted-foreground rounded-full border border-border/50"
+                className="px-3 py-1 text-sm font-medium bg-secondary/50 text-muted-foreground rounded-full border border-border/50 backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.5 + index * 0.1, duration: 0.4 }}
@@ -165,7 +165,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p 
-            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed backdrop-blur-sm"
             variants={itemVariants}
           >
             Backend-focused developer specializing in building scalable fintech solutions. 
@@ -180,7 +180,7 @@ export default function Hero() {
           >
             <motion.button
               onClick={handleScrollToProjects}
-              className="px-8 py-3 bg-primary text-background font-semibold rounded-lg flex items-center gap-2 shadow-lg shadow-primary/25"
+              className="px-8 py-3 bg-primary text-background font-semibold rounded-lg flex items-center gap-2 shadow-lg shadow-primary/25 backdrop-blur-sm"
               whileHover={{ 
                 scale: 1.05, 
                 boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)" 
@@ -200,7 +200,7 @@ export default function Hero() {
             <motion.a
               href="/resume.pdf"
               download
-              className="px-8 py-3 border border-border text-foreground font-semibold rounded-lg flex items-center gap-2 backdrop-blur-sm"
+              className="px-8 py-3 border border-border text-foreground font-semibold rounded-lg flex items-center gap-2 backdrop-blur-sm bg-background/50"
               whileHover={{ 
                 scale: 1.05, 
                 backgroundColor: "rgba(255, 255, 255, 0.05)",

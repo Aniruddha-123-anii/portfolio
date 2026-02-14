@@ -11,11 +11,17 @@ import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
+import PageLoader from '../components/PageLoader';
+import ScrollProgress from '../components/ScrollProgress';
+import ConstellationBackground from '../components/ConstellationBackground';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <PageLoader />
       <CustomCursor />
+      <ScrollProgress />
+      <ConstellationBackground />
       <Navbar />
       <Hero />
       <About />
