@@ -84,3 +84,10 @@ body {
 .animate-gradient {
   animation: gradient 3s ease infinite;
 }
+
+/* Custom cursor - hide default cursor on desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
